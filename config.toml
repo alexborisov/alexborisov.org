@@ -1,0 +1,5 @@
+baseURL = "http://alexborisov.org/"
+languageCode = "en-gb"
+title = "Alex Borisov"
+[params]
+  description = "Personal homepage of Alex Borisov"

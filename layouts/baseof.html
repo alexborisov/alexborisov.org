@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="{{ $.Site.LanguageCode | default "en" }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <title>{{ block "title" . }}{{ .Site.Title }} {{ with .Params.Title }} | {{ . }}{{ end }}{{ end }}</title>
+    <meta name="description" content="{{ .Site.Params.Description }}">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa:300,400|Fira+Code&display=swap" rel="stylesheet">
+    {{ if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production")  }}
+      <meta name="robots" content="index, follow">
+    {{ else }}
+      <meta name="robots" content="noindex, nofollow">
+    {{ end }}
+    {{ $style := resources.Get "sass/main.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}">
+  </head>
+  <body>
+    {{ block "main" . }}{{ end }}
+    {{ block "footer" . }}
+      {{ partialCached "footer.html" . }}
+    {{ end }}
+  </body>
+</html>
