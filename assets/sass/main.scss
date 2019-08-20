@@ -39,12 +39,13 @@ body {
 
       &_link {
         text-decoration: none;
-        color: rgba(255,255,255,0.2);
+        color: red;
         transition: color 0.1s ease-in-out;
 
         &:hover,
         &:active {
           color: red;
+          text-decoration: underline;
           opacity: 1;
         }
       }
