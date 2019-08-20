@@ -1,4 +1,4 @@
-baseURL = "http://alexborisov.org/"
+baseURL = "https://alexborisov.org/"
 languageCode = "en-gb"
 title = "Alex Borisov"
 [params]
